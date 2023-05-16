@@ -11,7 +11,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     const Storyblok = new StoryblokClient({
       accessToken: sbToken,
-      oauthToken: 'BJDEhLFtwr8nOnrEYWvZbQtt-197751-w-szxxohxFFyfsr-ptUE',
       region: 'us',
       cache: {
         clear: 'auto',
@@ -19,9 +18,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       }
     })
 
-    const sbResponse = await Storyblok.get('cdn/stories', {
-      token: 'UmHaK0TrFivENqwCqQBvXgtt',
-    });
+    const sbResponse = await Storyblok.get('cdn/stories');
 
     res.json(sbResponse.data);
     
